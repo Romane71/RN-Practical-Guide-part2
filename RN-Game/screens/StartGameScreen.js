@@ -3,7 +3,7 @@ import { useState } from "react";
 import { PrimaryButton } from "../components/PrimaryButton";
 
 
-export function StartGameScreen() {
+export function StartGameScreen({onPickNumber}) {
 
 const [enteredNumber, setEnteredNumber] = useState('');
 
@@ -26,8 +26,8 @@ if (isNaN(chosenNumber)  || chosenNumber <= 0 || chosenNumber > 99 ) {
     // show alert
     return 
 }
-console.log('Valid Number')
 
+onPickNumber(chosenNumber);
 }
 
 
