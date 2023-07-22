@@ -11,14 +11,22 @@ return (
     autoCapitalize="none"
     autoCorrect={false}
     />
+    <View style={styles.buttonsContainer}>
+        <View style={styles.buttonContainer}>
     <PrimaryButton>RESET </PrimaryButton>
+    </View>
+    <View style={styles.buttonContainer}>
     <PrimaryButton>CONFIRM</PrimaryButton>
+    </View>
+    </View>
     </View>
 )
 }
 const styles = StyleSheet.create({
 
     inputContainer: {
+        justifyContent: 'center',
+        alignItems: 'center',
         marginTop: 100,
         marginHorizontal: 24,
         padding: 16,
@@ -41,5 +49,12 @@ const styles = StyleSheet.create({
    fontWeight: 'bold',
    textAlign: 'center'
 
+    },
+    buttonsContainer: {
+        flexDirection: 'row',
+
+    },
+    buttonContainer: {
+        flex: 1
     }
 })
