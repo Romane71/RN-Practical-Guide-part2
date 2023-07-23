@@ -18,7 +18,6 @@ const [ gameIsOver, setGameIsOver] = useState(true)
     setGameIsOver(false)
   }
 
-
   function gameOverHandler() {
     setGameIsOver(true)
   }
