@@ -1,5 +1,5 @@
 
-import { StyleSheet, View , ImageBackground} from 'react-native';
+import { StyleSheet, View , ImageBackground, SafeAreaView} from 'react-native';
 import { StartGameScreen } from './screens/StartGameScreen';
 import { useState } from 'react';
 import { GameScreen } from './screens/GameScreen';
@@ -23,13 +23,14 @@ export default function App() {
   }
 
   return (
+
     <View style={styles.rootScreen}>
       <ImageBackground source={require('../RN-Game/assets/images/background.png')} 
       resizeMode="cover"
       style={styles.rootScreen}
     
       >
-     {screen}
+     <SafeAreaView style={styles.rootScreen}>{screen}</SafeAreaView>
     </ImageBackground>
    </View>
   )

@@ -1,6 +1,7 @@
 import { TextInput , View, StyleSheet, Alert} from "react-native";
 import { useState } from "react";
-import { PrimaryButton } from "../components/PrimaryButton";
+import { PrimaryButton } from "../components/ui/PrimaryButton";
+
 
 
 export function StartGameScreen({onPickNumber}) {
@@ -35,8 +36,8 @@ return (
     <View style={styles.inputContainer}>
     <TextInput style={styles.numberInput} 
     maxLength={2} 
-    keyboardType="number-pad"
     autoCapitalize="none"
+   keyboardType="number-pad"
     autoCorrect={false}
     onChangeText={numberInputHandler}
     value={enteredNumber}
