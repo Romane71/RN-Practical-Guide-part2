@@ -1,6 +1,9 @@
 import { TextInput , View, StyleSheet, Alert} from "react-native";
 import { useState } from "react";
 import { PrimaryButton } from "../components/ui/PrimaryButton";
+import { Title } from "../components/ui/Title";
+import { Card } from "../components/ui/Card";
+import { InstructionText } from "../components/ui/InstructionText";
 
 
 
@@ -33,8 +36,12 @@ onPickNumber(chosenNumber);
 
 
 return (
-    <View style={styles.inputContainer}>
-    <TextInput style={styles.numberInput} 
+    <View style={styles.rootContainer}>
+      <Title>Guess My Number</Title>
+      <Card>
+     <InstructionText>Enter a number</InstructionText>
+    <TextInput
+     style={styles.numberInput} 
     maxLength={2} 
     autoCapitalize="none"
    keyboardType="number-pad"
@@ -50,24 +57,17 @@ return (
     <PrimaryButton onPress={confirmInputHandler} >CONFIRM</PrimaryButton>
     </View>
     </View>
+    </Card>
     </View>
+
 )
 }
 const styles = StyleSheet.create({
+    rootContainer: {
+    flex: 1,
+    marginTop: 100,
+    alignItems: 'center'
 
-    inputContainer: {
-        justifyContent: 'center',
-        alignItems: 'center',
-        marginTop: 100,
-        marginHorizontal: 24,
-        padding: 16,
-        backgroundColor: 'bisque',
-        borderRadius: 8,
-        elevation: 4,
-        shadowColor: 'black',
-        shadowOffset: { width: 0, height:2 },
-        shadowRadius: 6,
-        shadowOpacity: 0.30
     },
     numberInput: {
    height: 50,
@@ -78,11 +78,12 @@ const styles = StyleSheet.create({
    color: 'coral',
    marginVertical: 8,
    fontWeight: 'bold',
-   textAlign: 'center'
-
+   textAlign: 'center',
     },
+
     buttonsContainer: {
         flexDirection: 'row',
+
 
     },
     buttonContainer: {
