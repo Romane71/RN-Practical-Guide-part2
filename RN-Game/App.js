@@ -4,7 +4,7 @@ import { StartGameScreen } from './screens/StartGameScreen';
 import { useState } from 'react';
 import { GameScreen } from './screens/GameScreen';
 import { GameOverScreen } from './screens/GameOverScreen';
-
+import { StatusBar } from 'expo-status-bar';
 
 
 export default function App() {
@@ -46,6 +46,8 @@ if (gameIsOver && userNumber) {
 
   return (
 
+    <>
+   
     <View style={styles.rootScreen}>
       <ImageBackground source={require('../RN-Game/assets/images/background.png')} 
       resizeMode="cover"
@@ -55,6 +57,8 @@ if (gameIsOver && userNumber) {
      <SafeAreaView style={styles.rootScreen}>{screen}</SafeAreaView>
     </ImageBackground>
    </View>
+   
+   </>
   )
 }
 

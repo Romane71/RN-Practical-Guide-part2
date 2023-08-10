@@ -1,13 +1,33 @@
-import { Image, View, StyleSheet, Text, Dimensions} from "react-native";
+import { Image, View, StyleSheet, Text, Dimensions, useWindowDimensions, ScrollView} from "react-native";
 import { Title } from "../components/ui/Title";
 import {PrimaryButton} from '../components/ui/PrimaryButton'
 
 
 
 export function GameOverScreen({roundsNumber, userNumber, onStartNewGame}) {
-    return ( <View style={styles.rootContainer}>
+const { width, height} = useWindowDimensions();
+
+let imageSize = 300;
+
+if (width < 380 ) {
+    imageSize = 150;
+}
+
+if (height < 400 ) {
+    imageSize = 80;
+}
+
+const imageStyle = {
+    width: imageSize,
+    height: imageSize,
+    borderRadius: imageSize / 2
+}
+
+    return ( 
+    <ScrollView style={stylesles.screen}>
+    <View style={styles.rootContainer}>
         <Title>GAME OVER</Title>
-        <View style={styles.imageContainer}>
+        <View style={[styles.imageContainer, imageStyle]}>
         <Image 
         style={styles.image} 
         source={require('../assets/images/success.png')}/>
@@ -19,12 +39,15 @@ export function GameOverScreen({roundsNumber, userNumber, onStartNewGame}) {
       </Text>
       <PrimaryButton onPress={onStartNewGame}>Start New Game</PrimaryButton>
     </View>
+    </ScrollView>
 )}
 
-const deviceWidth = Dimensions.get('window');
+  //const deviceWidth = Dimensions.get('window');
 
 const styles = StyleSheet.create({
-
+  screen: {
+    flex: 1
+  },
     rootContainer: {
         flex: 1,
         padding: 24,
@@ -33,9 +56,9 @@ const styles = StyleSheet.create({
     },
  
     imageContainer: {
-        width: deviceWidth < 380 ? 150 : 300,
-        height: deviceWidth < 380 ? 150 : 300,
-        borderRadius: deviceWidth < 380 ? 75 : 150,
+       // width: deviceWidth < 380 ? 150 : 300,
+      //  height: deviceWidth < 380 ? 150 : 300,
+      //  borderRadius: deviceWidth < 380 ? 75 : 150,
         borderWidth: 3,
         borderColor: 'khaki',
         overflow: 'hidden',
@@ -56,6 +79,7 @@ const styles = StyleSheet.create({
     }, 
     highlight: {
      color: 'khaki'
-    }
+    },
+
 
 })
