@@ -22,6 +22,7 @@ function generateRandomBetween(min, max, exclude) {
 let minBoundary = 1;
 let maxBoundary = 100;
 
+
 export function GameScreen({ userNumber, onGameOver}) {
      const initialGuess = generateRandomBetween(
         1, 
@@ -57,15 +58,14 @@ export function GameScreen({ userNumber, onGameOver}) {
     }
    
 
-
-
     if (direction === 'lower') {
         maxBoundary = currentGuess - 1 ;
     } else {
         minBoundary = currentGuess + 1;
     }
-    const newRndNumber =  generateRandomBetween(minBoundary, maxBoundary, currentGuess);
 
+    const newRndNumber =  generateRandomBetween(minBoundary, maxBoundary, currentGuess);
+    
     setCurrentGuess(newRndNumber);
     setGuessRounds(prevGuessRounds => [newRndNumber, ...prevGuessRounds]);
     }
@@ -77,8 +77,21 @@ export function GameScreen({ userNumber, onGameOver}) {
     <>
       <NumberContainer>{currentGuess}</NumberContainer>
       <Card>
+        <InstructionText style={styles.instructionText}>
+            Higher or Lower?
+        </InstructionText>
       <View style={styles.buttonsContainer}>
-    </View>
+        <View style={styles.buttonContainer}>
+            <PrimaryButton onPress={nextGuessHandler.bind(this, 'lower')}>
+                <Ionicons name="md-remove" size={24} color="white" />
+            </PrimaryButton>
+            </View>
+            <View style={styles.buttonContainer}>
+                <PrimaryButton onPress={nextGuessHandler.bind(this, 'greater')}>
+                    <Ionicons name="md-add" size={24} color="white" />
+                </PrimaryButton>
+            </View>
+           </View>
        </Card>
     </>
     );
@@ -87,8 +100,6 @@ export function GameScreen({ userNumber, onGameOver}) {
      content = (
      <>
       <View style={styles.buttonsContainerWide}> 
-      <View style={buttonContainer}>
-     <NumberContainer>{currentGuess}</NumberContainer>
      <View style={styles.buttonContainer}>
        <PrimaryButton onPress={nextGuessHandler.bind(this, 'lower')}>
         <Ionicons name="md-remove" size={24} color="white"/>
@@ -101,7 +112,6 @@ export function GameScreen({ userNumber, onGameOver}) {
         <Ionicons name="md-add" size={24} color='white'/>
        </PrimaryButton>
        </View>
-     </View>
      </View>
         </>
      );
