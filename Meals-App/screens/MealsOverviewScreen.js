@@ -3,7 +3,7 @@ import { View, Text, StyleSheet} from 'react-native'
 
 export function MealsOverViewScreen() {
     return ( <View style={styles.container}>
-        <Text>Meals Overview Screen</Text>
+        <Text>MealsOverViewScreen</Text>
     </View>
     );
 };
