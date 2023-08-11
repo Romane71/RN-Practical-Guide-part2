@@ -13,7 +13,10 @@ function renderCategoryItem(itemData) {
     <CategoryGridTile 
      title={itemData.item.title} 
      color={itemData.item.color} 
-     onPress={PressHandler}/>
+     onPress={PressHandler}
+  
+     />
+
     );
 }
     return ( <FlatList
